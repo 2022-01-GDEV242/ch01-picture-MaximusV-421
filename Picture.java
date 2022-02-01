@@ -15,6 +15,7 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person;
     private boolean drawn;
 
     /**
@@ -26,6 +27,7 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        person = new Person();
         drawn = false;
     }
 
@@ -56,6 +58,9 @@ public class Picture
             sun.moveVertical(-40);
             sun.changeSize(80);
             sun.makeVisible();
+            
+            person.moveVertical(130);
+            person.makeVisible();
             drawn = true;
         }
     }
@@ -80,5 +85,30 @@ public class Picture
         window.changeColor("black");
         roof.changeColor("green");
         sun.changeColor("yellow");
+    }
+    
+    /**
+     * Change this picture to make the sunset 
+     */
+    public void sunset()
+    {
+        sun.slowMoveVertical(250);
+        person.slowMoveVertical(-65);
+    }
+    
+    /**
+     * Change this picture to make the sunrise
+     */
+    public void sunrise()
+    {
+        sun.slowMoveVertical(-250);
+    }
+    
+    /**
+     * Change this picture to make a person walk up to the house
+     */
+    public void walk()
+    {
+        person.slowMoveVertical(-65);
     }
 }
